@@ -5,10 +5,12 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 import './App.css'
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components'
-import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages'
+import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor, Line } from './pages'
+
+import { useStateContext } from './contexts/ContextProvider'
 
 const App = () => {
-    const [activeMenu, setActiveMenu] = useState(true)
+    const { activeMenu } = useStateContext()
     
     return (
         <div>
@@ -47,8 +49,8 @@ const App = () => {
                     <div>
                         <Routes>
                             {/* Dashboard */}
-                            <Route path="/" element={<ECommerce />} />
-                            <Route path="/ecommerce" element={<ECommerce />} />
+                            <Route path="/" element={<Ecommerce />} />
+                            <Route path="/ecommerce" element={<Ecommerce />} />
                             {/* Pages */}
                             <Route path="/orders" element={<Orders />} />
                             <Route path="/employees" element={<Employees />} />
