@@ -2,7 +2,7 @@ import React from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs'
 import { GoPrimitiveDot } from 'react-icons/go'
 import { Stacked, Pie, Button, SparkLine } from '../components'
-import { earningData, SparkLineAreaData, ecomPieChartData } from '../data/dummy'
+import { earningData, SparkLineAreaData, ecomPieChartData } from '../assets/dummy'
 import { useStateContext } from '../contexts/ContextProvider'
 
 const Ecommerce = () => {
@@ -85,6 +85,9 @@ const Ecommerce = () => {
                                 <span className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs">
                                     23%
                                 </span>
+                            </p>
+                            <p>
+                                Budget
                             </p>
                         </div>
                     </div>

@@ -6,7 +6,7 @@ import { RiNotificationLine } from 'react-icons/ri'
 import { MdKeyboardArrowDown } from 'react-icons/md'
 
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
-import avatar from '../assets/avatar.jpeg'
+import avatar from '../assets/avatar.jpg'
 import { Cart, Chat, Notification, UserProfile }
  from './'
 import { useStateContext } from '../contexts/ContextProvider'
@@ -21,7 +21,7 @@ const NavButton = ({ title, customFnc, icon, color, dotColor }) => (
 )
 
 const Navbar = () => {
-    const [activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize] = useStateContext()
+    const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize} = useStateContext()
 
     useEffect(() => {
         const handleResize = () => setScreenSize(window.innerWidth)
@@ -39,6 +39,7 @@ const Navbar = () => {
       }
     }, [screenSize])
     
+    const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
     return (
         <div className="flex justify-between p-2 md:mx-6 relative">
