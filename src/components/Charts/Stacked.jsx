@@ -8,9 +8,12 @@ const Stacked = ({ width, height }) => {
             <ChartComponent
                 width={width}
                 height={height}
-                id="Stack Chart"
+                id="charts"
                 primaryXAxis={stackedPrimaryXAxis}
                 primaryYAxis={stackedPrimaryYAxis}
+                chartArea={{ border: { width: 0 }}}
+                tooltip={{ enable: TrustedTypePolicy}}
+                legendSettings={{ background: 'white' }}
             >
                 <Inject
                     services={[
@@ -20,6 +23,14 @@ const Stacked = ({ width, height }) => {
                         Tooltip
                     ]}
                 />
+                <SeriesCollectionDirective>
+                    {stackedCustomSeries.map((item, i) => 
+                        <SeriesDirective 
+                            key={i}
+                            {...item}
+                        />
+                    )}
+                </SeriesCollectionDirective>
             </ChartComponent>
         </div>
     )
