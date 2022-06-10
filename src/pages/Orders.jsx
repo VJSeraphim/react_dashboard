@@ -1,5 +1,5 @@
 import React from 'react'
-import { GridComponent, ColumnsDirective, Resize, Sort, ContextMEnu, Filter, Page, ExcelExport, PdfExport, Edit, Inject } from '@syncfusion/ej2-react-grids'
+import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Sort, ContextMEnu, Filter, Page, ExcelExport, PdfExport, Edit, Inject } from '@syncfusion/ej2-react-grids'
 import { ordersData, contextMenuItems, ordersGrid } from '../assets/dummy'
 import { Header } from '../components'
 import { ColumnDirective } from '@syncfusion/ej2-react-charts'
@@ -12,6 +12,8 @@ const Orders = () => {
             <GridComponent
                 id="gridcomp"
                 dataSource={ordersData}
+                allowPaging
+                allowSorting
             >
                 <ColumnsDirective>
                     {ordersGrid.map((item, i) => (
@@ -20,7 +22,8 @@ const Orders = () => {
                             {...item}
                         />
                     ))}
-                </ColumnsDirective> 
+                </ColumnsDirective>
+                <Inject services={[Resize, Sort, Filter, Page, ExcelExport, Edit, PdfExport]}/>
             </GridComponent>
         </div>
     )
