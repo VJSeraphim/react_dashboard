@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
+import { GiFamilyHouse } from 'react-icons/gi'
 
 const StateContext = createContext()
 
@@ -13,6 +14,21 @@ export const ContextProvider = ({ children }) => {
     const [screenSize, setScreenSize] = useState(undefined)
     const [activeMenu, setActiveMenu] = useState(true)
     const [isClicked, setIsClicked] = useState(initialState)
+    const [currentColor, setCurrentColor] = useState('#03C9D7')
+    const [currentMode, setCurrentMode] = useState('Light')
+    const [themeSettings, setThemeSettings] = useState(false)
+
+    const setMode = (e) => {
+        setCurrentMode(e.target.value)
+        localStorage.setItem('themeMode', e.target.value)
+        setThemeSettings(false)
+    }
+
+    const setColor = (e) => {
+        setCurrentColor(e.target.value)
+        localStorage.setItem('themeColor', e.target.value)
+        setThemeSettings(false)
+    }
 
     const handleClick = (clicked) => {
         setIsClicked({...initialState, [clicked] : true})
@@ -27,7 +43,13 @@ export const ContextProvider = ({ children }) => {
                 setIsClicked,
                 handleClick,
                 screenSize,
-                setScreenSize
+                setScreenSize,
+                setColor,
+                setMode,
+                currentColor,
+                currentMode,
+                themeSettings,
+                setThemeSettings
              }}
         >   
             {children}
